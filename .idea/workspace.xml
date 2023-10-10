@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="710e4dcc-36cb-4ede-aace-08d4c843cb81" name="Changes" comment="addded addDish()">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Dish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Dish.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/model/OrderManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/OrderManager.java" afterDir="false" />
+    <list default="true" id="710e4dcc-36cb-4ede-aace-08d4c843cb81" name="Changes" comment="added add and get methods in OrderManager">
+      <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Phone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Phone.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +77,23 @@
       <option name="project" value="LOCAL" />
       <updated>1696934315065</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="solved problems">
+      <option name="closed" value="true" />
+      <created>1696935083983</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1696935083983</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added add and get methods in OrderManager">
+      <option name="closed" value="true" />
+      <created>1696935130228</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1696935130228</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -110,6 +123,8 @@
     <MESSAGE value="first commit" />
     <MESSAGE value="addded attributes, constructor, setter and getter" />
     <MESSAGE value="addded addDish()" />
-    <option name="LAST_COMMIT_MESSAGE" value="addded addDish()" />
+    <MESSAGE value="solved problems" />
+    <MESSAGE value="added add and get methods in OrderManager" />
+    <option name="LAST_COMMIT_MESSAGE" value="added add and get methods in OrderManager" />
   </component>
 </project>
