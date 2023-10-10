@@ -8,7 +8,7 @@ class Phone {
 
 
 
-    Phone(String number) {
+    public Phone(String number) {
         this.number = number;
     }
 
@@ -19,7 +19,11 @@ class Phone {
 
 
     public void setNumber(String number) {
-        this.number = number;
+        if (this.isValid()) {
+            this.number = number;}
+        else {
+            this.number = "XXXX";
+        }
     }
 
     public boolean isValid(){
