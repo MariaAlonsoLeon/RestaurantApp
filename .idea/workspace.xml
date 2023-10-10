@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="710e4dcc-36cb-4ede-aace-08d4c843cb81" name="Changes" comment="first commit">
-      <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Dish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Dish.java" afterDir="false" />
+    <list default="true" id="710e4dcc-36cb-4ede-aace-08d4c843cb81" name="Changes" comment="addded attributes, constructor, setter and getter">
       <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Menu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +61,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696933602299</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="addded attributes, constructor, setter and getter">
+      <option name="closed" value="true" />
+      <created>1696933825850</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1696933825850</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -92,6 +97,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+    <MESSAGE value="addded attributes, constructor, setter and getter" />
+    <option name="LAST_COMMIT_MESSAGE" value="addded attributes, constructor, setter and getter" />
   </component>
 </project>
