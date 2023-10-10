@@ -42,4 +42,12 @@ public class Restaurant {
         menus.add(new Menu(name, description));
     }
 
+    @Override
+    public String toString() {
+        return "Restaurant{" +
+                "name='" + name + '\'' +
+                ", phone=" + phone +
+                ", menus=" + menus +
+                '}';
+    }
 }
