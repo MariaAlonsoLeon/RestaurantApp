@@ -3,6 +3,7 @@ package org.ulpgc.is1.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Order {
 
@@ -59,5 +60,19 @@ public class Order {
 
     public void setRestaurant(Restaurant restaurant) {
         this.restaurant = restaurant;
+    }
+
+    public void addOrderItem(OrderItem orderItem){
+        orderItems.add(orderItem);
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderItems=" + orderItems +
+                ", id=" + id +
+                ", customer=" + customer +
+                ", restaurant=" + restaurant +
+                '}';
     }
 }

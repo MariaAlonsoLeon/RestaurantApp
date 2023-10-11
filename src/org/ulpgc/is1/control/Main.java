@@ -2,6 +2,10 @@ package org.ulpgc.is1.control;
 
 import org.ulpgc.is1.model.*;
 
+import java.util.ArrayList;
+
+import static org.ulpgc.is1.model.MenuType.Daily;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -35,6 +39,13 @@ public class Main {
         Dish dish1 = new Dish("Carne con papas fritas", "Super plato para cuando estás cansado", 20);
         Dish dish2 = new Dish("Salmon con puré de papas", "El salmon es Noruego y todo, por eso es caro", 40);
         Dish dish3 = new Dish("Solomillo mechado con salsa de champiñones", "Ideal para navidad", 30);
+
+
+        Menu catalogue;
+        catalogue = new Menu("Desayunos", "Disponible de 9:30 a 10:30. Es super ligero", Daily);
+        ArrayList<Dish> catalogueList = catalogue.getDishes();
+        ArrayList<Dish> orderedDishes = (ArrayList<Dish>) catalogueList.subList(catalogueList.size() - 1, catalogueList.size());
+
 
 
 

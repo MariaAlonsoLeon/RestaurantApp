@@ -4,20 +4,22 @@ package org.ulpgc.is1.model;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import org.ulpgc.is1.model.MenuType;
 
 public class Menu {
 
 
-    static List<Dish> dishArrayList;
+    private static List<Dish> dishArrayList;
+
     private String name;
     private String description;
-    private Type type;
+    private MenuType type;
 
 
-    public Menu(String name, String description, Type type) {
+    public Menu(String name, String description, MenuType type) {
         this.name = name;
         this.description = description;
-        dishArrayList = new ArrayList<>();
+        this.dishArrayList = new ArrayList<>();
         this.type = type;
 
     }
@@ -45,13 +47,18 @@ public class Menu {
         dishArrayList.add(newDish);
     }
 
-    public Type getType() {
+    public MenuType getType() {
         return type;
     }
 
-    public void setType(Type type) {
+    public void setType(MenuType type) {
         this.type = type;
     }
+
+    public ArrayList<Dish> getDishes(){
+        return (ArrayList<Dish>) dishArrayList;
+    }
+
 }
 
 

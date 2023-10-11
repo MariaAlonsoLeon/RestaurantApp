@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="710e4dcc-36cb-4ede-aace-08d4c843cb81" name="Changes" comment="corrected errors 2">
+    <list default="true" id="710e4dcc-36cb-4ede-aace-08d4c843cb81" name="Changes" comment="corrected errors 3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/control/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/control/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/model/OrderItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/OrderItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/model/OrderManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/OrderManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Phone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Phone.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Restaurant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Restaurant.java" afterDir="false" />
     </list>
     <list id="1f690483-d821-4b83-93c9-1aef448b207b" name="Changes by DANI" comment="" />
@@ -161,7 +162,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696943904345</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="corrected errors 3">
+      <option name="closed" value="true" />
+      <created>1697011451944</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1697011451944</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -198,6 +207,7 @@
     <MESSAGE value="added price(), getDish() and dish" />
     <MESSAGE value="added toString() methods" />
     <MESSAGE value="corrected errors 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="corrected errors 2" />
+    <MESSAGE value="corrected errors 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="corrected errors 3" />
   </component>
 </project>

@@ -3,12 +3,10 @@ package org.ulpgc.is1.model;
 
 public class OrderItem {
     private int quantity;
-    private Dish dish; //Atributo nuevo
 
 
-    public OrderItem(int quantity, Dish dish) {
+    public OrderItem(int quantity) {
         this.quantity = quantity;
-        this.dish = dish;
     }
 
 
@@ -22,9 +20,7 @@ public class OrderItem {
     }
 
     //Método nuevo
-    public Dish getDish() {
-        return this.dish;
-    }
+
 
 
 

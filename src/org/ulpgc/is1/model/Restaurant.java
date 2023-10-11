@@ -39,7 +39,7 @@ public class Restaurant {
         this.phone = phone;
     }
 
-    public void addMenu(String name, String description, Type type){
+    public void addMenu(String name, String description, MenuType type){
         menus.add(new Menu(name, description, type));
     }
 
