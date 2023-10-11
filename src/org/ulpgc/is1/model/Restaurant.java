@@ -10,13 +10,13 @@ public class Restaurant {
 
     private String name;
     private Phone phone;
-    private List<Menu> menus;
+    private final List<Menu> menus;
 
 
     public Restaurant(String name, Phone phone) {
         this.name = name;
         this.phone = phone;
-        menus = new ArrayList<>();
+        this.menus = new ArrayList<>();
     }
 
 
@@ -39,15 +39,21 @@ public class Restaurant {
         this.phone = phone;
     }
 
-    public void addMenu(String name, String description, MenuType type){
-        menus.add(new Menu(name, description, type));
+    public void addMenu(String name, String description, MenuType type) {
+        Menu newMenu = new Menu(name, description, type);
+        this.menus.add(newMenu);
+    }
+
+
+    public Menu getMenu(int index){
+        return this.menus.get(index);
     }
 
     @Override
     public String toString() {
         return "Restaurant{" +
                 "name='" + name + '\'' +
-                ", phone=" + phone +
+                ", phone=" + phone.toString() +
                 ", menus=" + menus +
                 '}';
     }

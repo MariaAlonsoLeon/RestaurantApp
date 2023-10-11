@@ -33,5 +33,11 @@ public class Phone {
         return result;
     }
 
+    @Override
+    public String toString() {
+        return "Phone{" +
+                "number='" + number + '\'' +
+                '}';
+    }
 }
 

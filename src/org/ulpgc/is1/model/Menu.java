@@ -59,6 +59,14 @@ public class Menu {
         return (ArrayList<Dish>) dishArrayList;
     }
 
+    @Override
+    public String toString() {
+        return "Menu{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", type=" + type +
+                '}';
+    }
 }
 
 
