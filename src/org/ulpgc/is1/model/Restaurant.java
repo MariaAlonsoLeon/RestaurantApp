@@ -1,6 +1,7 @@
 package org.ulpgc.is1.model;
 
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,8 +39,8 @@ public class Restaurant {
         this.phone = phone;
     }
 
-    public void addMenu(String name, String description){
-        menus.add(new Menu(name, description));
+    public void addMenu(String name, String description, Type type){
+        menus.add(new Menu(name, description, type));
     }
 
     @Override

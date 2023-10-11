@@ -2,12 +2,8 @@ package org.ulpgc.is1.model;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-class Phone {
+public class Phone {
     private String number;
-
-
-
-
     public Phone(String number) {
         this.number = number;
     }
@@ -33,7 +29,8 @@ class Phone {
 
         Matcher matcher = pattern.matcher(this.number); //Creamos un objeto Match para el telefono
 
-        return matcher.matches(); //Comprueba si el número de teléfono coincide con el patrón
+        boolean result = matcher.matches(); //Comprueba si el número de teléfono coincide con el patrón
+        return result;
     }
 
 }

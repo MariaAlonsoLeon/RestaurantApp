@@ -4,7 +4,19 @@ import org.ulpgc.is1.model.*;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+
+        OrderManager orderManager = new OrderManager();
+
+        init(orderManager);
+
+        Restaurant restaurant1 = orderManager.getRestaurant(0);
+        Customer customer2 = orderManager.getCustomer(1);
+        Dish dish3 = orderManager.getDish(2);
+
+
+        System.out.println(restaurant1.toString());
+        System.out.println(customer2.toString());
+        System.out.println(dish3.toString());
     }
 
 
@@ -21,8 +33,10 @@ public class Main {
         //Control + shif + A --> toString
         //Crear tres platos diferentes
         Dish dish1 = new Dish("Carne con papas fritas", "Super plato para cuando estás cansado", 20);
-        Dish dish2 = new Dish("Salmon con puré de papas", "El salmon es Noruego y todo por eso es caro", 40);
-        Dish dish3 = new Dish("Mechas de solomillo con salsa de champiñon", "Ideal para navidad", 30);
+        Dish dish2 = new Dish("Salmon con puré de papas", "El salmon es Noruego y todo, por eso es caro", 40);
+        Dish dish3 = new Dish("Solomillo mechado con salsa de champiñones", "Ideal para navidad", 30);
+
+
 
     }
 }
