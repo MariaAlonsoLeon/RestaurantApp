@@ -19,7 +19,6 @@ public class Order {
         orderItems = new ArrayList<>();
     }
 
-
     public int getId() {
         return id;
     }

@@ -27,6 +27,9 @@ public class Address {
 
 
     public void setStreet(String street) {
+        if (street == null || street.trim().isEmpty()) {
+            throw new IllegalArgumentException("La calle no puede estar en blanco.");
+        }
         this.street = street;
     }
 
@@ -39,7 +42,6 @@ public class Address {
     public void setNumber(int number) {
         this.number = number;
     }
-
 
     public int getPostalCode() {
         return postalCode;
@@ -57,6 +59,10 @@ public class Address {
 
 
     public void setCity(String city) {
+        if (city == null || city.trim().isEmpty()) {
+            throw new IllegalArgumentException("La ciudad no puede estar en blanco.");
+        }
+
         this.city = city;
     }
 }

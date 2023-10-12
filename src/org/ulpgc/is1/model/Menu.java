@@ -31,6 +31,9 @@ public class Menu {
 
 
     public void setName(String name) {
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("La calle no puede estar en blanco.");
+        }
         this.name = name;
     }
 
@@ -39,6 +42,9 @@ public class Menu {
     }
 
     public void setDescription(String description) {
+        if (description == null || description.trim().isEmpty()) {
+            throw new IllegalArgumentException("La calle no puede estar en blanco.");
+        }
         this.description = description;
     }
 
@@ -57,6 +63,10 @@ public class Menu {
     }
 
     public void setType(MenuType type) {
+        if (!(type instanceof MenuType)) {
+            throw new IllegalArgumentException("Tipo no válido.");
+        }
+
         this.type = type;
     }
 

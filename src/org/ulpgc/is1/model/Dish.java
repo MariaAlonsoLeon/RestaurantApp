@@ -22,6 +22,9 @@ public class Dish {
 
 
     public void setName(String name) {
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("La calle no puede estar en blanco.");
+        }
         this.name = name;
     }
 
@@ -32,6 +35,10 @@ public class Dish {
 
 
     public void setDescription(String description) {
+        if (description == null || description.trim().isEmpty()) {
+            throw new IllegalArgumentException("La calle no puede estar en blanco.");
+        }
+
         this.description = description;
     }
 

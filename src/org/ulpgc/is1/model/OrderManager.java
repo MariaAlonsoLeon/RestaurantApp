@@ -32,7 +32,6 @@ public class OrderManager {
     }
 
     public void addDish(String name, String description, int price){
-
         if (name != null && description != null && price > 0) {
             dishes.add(new Dish(name, description, price));
         } else {

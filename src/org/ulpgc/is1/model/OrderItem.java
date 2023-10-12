@@ -33,7 +33,13 @@ public class OrderItem {
         return dish;
     }
 
-    //Método nuevo
+    public void setDish(Dish dish){
+        if (dish == null) {
+            throw new IllegalArgumentException("El plato no puede ser nulo.");
+        }
+        this.dish = dish;
+    }
+
 
     @Override
     public String toString() {

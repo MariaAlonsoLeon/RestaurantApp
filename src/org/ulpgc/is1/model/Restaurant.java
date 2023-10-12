@@ -33,13 +33,16 @@ public class Restaurant {
         }
     }
 
-
     public Phone getPhone() {
         return phone;
     }
 
 
     public void setPhone(Phone phone) {
+        if(!(phone.isValid(phone.getNumber()))){
+            throw new IllegalArgumentException("El teléfono es inválido.");
+        }
+
         this.phone = phone;
     }
 
@@ -61,6 +64,7 @@ public class Restaurant {
 
     @Override
     public String toString() {
+
         return "Restaurant{" +
                 "name='" + name + '\'' +
                 ", phone=" + phone.toString() +
