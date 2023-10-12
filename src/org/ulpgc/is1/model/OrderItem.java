@@ -7,6 +7,12 @@ public class OrderItem {
 
 
     public OrderItem(int quantity, Dish dish) {
+        if (quantity < 0) {
+            throw new IllegalArgumentException("La cantidad no puede ser negativa.");
+        }
+        else if (dish == null) {
+            throw new IllegalArgumentException("El plato no puede ser nulo.");
+        }
         this.quantity = quantity;
         this.dish = dish;
     }
@@ -17,6 +23,9 @@ public class OrderItem {
 
 
     public void setQuantity(int quantity) {
+        if (quantity < 0) {
+            throw new IllegalArgumentException("La cantidad no puede ser negativa.");
+        }
         this.quantity = quantity;
     }
 

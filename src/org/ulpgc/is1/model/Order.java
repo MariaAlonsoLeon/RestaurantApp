@@ -32,12 +32,17 @@ public class Order {
         for (OrderItem orderItem : orderItems) {
             int quantity = orderItem.getQuantity();
             Dish dish = orderItem.getDish();
+
+            if (quantity < 0) {
+                throw new IllegalArgumentException("La cantidad en un OrderItem no puede ser negativa.");
+            }
+
+            if (dish == null) {
+                throw new IllegalArgumentException("El plato en un OrderItem no puede ser nulo.");
+            }
+
             int dishPrice = dish.getPrice();
-
-            // Precio = cantidad * precio del plato
             int itemTotalPrice = quantity * dishPrice;
-
-            // Agrega el precio de este OrderItem al precio total del pedido
             totalPrice += itemTotalPrice;
         }
 
@@ -50,6 +55,9 @@ public class Order {
     }
 
     public void setCustomer(Customer customer) {
+        if (customer == null) {
+            throw new IllegalArgumentException("El cliente no puede ser nulo.");
+        }
         this.customer = customer;
     }
 
@@ -58,6 +66,9 @@ public class Order {
     }
 
     public void setRestaurant(Restaurant restaurant) {
+        if (restaurant == null) {
+            throw new IllegalArgumentException("El restaurante no puede ser nulo.");
+        }
         this.restaurant = restaurant;
     }
 

@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="710e4dcc-36cb-4ede-aace-08d4c843cb81" name="Changes" comment="first order">
+    <list default="true" id="710e4dcc-36cb-4ede-aace-08d4c843cb81" name="Changes" comment="quantity problem solved">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/control/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/control/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Dish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Dish.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Order.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/model/OrderItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/OrderItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/model/OrderManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/OrderManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Phone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Phone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Restaurant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Restaurant.java" afterDir="false" />
     </list>
     <list id="1f690483-d821-4b83-93c9-1aef448b207b" name="Changes by DANI" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -191,7 +197,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697104667618</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="quantity problem solved">
+      <option name="closed" value="true" />
+      <created>1697118050871</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1697118050871</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -232,6 +246,7 @@
     <MESSAGE value="added order() and solved some problems" />
     <MESSAGE value="solved some problems" />
     <MESSAGE value="first order" />
-    <option name="LAST_COMMIT_MESSAGE" value="first order" />
+    <MESSAGE value="quantity problem solved" />
+    <option name="LAST_COMMIT_MESSAGE" value="quantity problem solved" />
   </component>
 </project>

@@ -26,7 +26,11 @@ public class Restaurant {
 
 
     public void setName(String name) {
-        this.name = name;
+        if (name != null && !name.isEmpty()) {
+            this.name = name;
+        } else {
+            throw new IllegalArgumentException("El nombre del restaurante no puede ser nulo o vacío.");
+        }
     }
 
 
@@ -40,6 +44,12 @@ public class Restaurant {
     }
 
     public void addMenu(String name, String description, MenuType type) {
+        for (Menu menu : menus) {
+            if (menu.getName().equals(name)) {
+                throw new IllegalArgumentException("Ya existe un menú con el mismo nombre.");
+            }
+        }
+
         Menu newMenu = new Menu(name, description, type);
         this.menus.add(newMenu);
     }

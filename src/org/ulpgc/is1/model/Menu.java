@@ -44,7 +44,12 @@ public class Menu {
 
 
     public static void addDish(Dish newDish){
-        dishArrayList.add(newDish);
+
+        if (newDish != null) {
+            dishArrayList.add(newDish);
+        } else {
+            throw new IllegalArgumentException("No se puede agregar un plato nulo al menú.");
+        }
     }
 
     public MenuType getType() {

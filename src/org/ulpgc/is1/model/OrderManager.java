@@ -24,71 +24,51 @@ public class OrderManager {
     }
 
     public void addCustomer(String name, String surname){
-        customers.add(new Customer(name, surname));
+        if (name != null && surname != null) {
+            customers.add(new Customer(name, surname));
+        } else {
+            throw new IllegalArgumentException("Nombre y apellido no pueden ser nulos");
+        }
     }
 
     public void addDish(String name, String description, int price){
-        dishes.add(new Dish(name, description, price));
+
+        if (name != null && description != null && price > 0) {
+            dishes.add(new Dish(name, description, price));
+        } else {
+            throw new IllegalArgumentException("Nombre, descripción o precio inválidos");
+        }
     }
 
     public void addRestaturant(String name, Phone phone){
-        restaurants.add(new Restaurant(name, phone));
+        if (name != null && phone != null) {
+            restaurants.add(new Restaurant(name, phone));
+        } else {
+            throw new IllegalArgumentException("Nombre o teléfono del restaurante no pueden ser nulos");
+        }
     }
 
     public Customer getCustomer(int index){
-        return customers.get(index);
+        if (index >= 0 && index < customers.size()) {
+            return customers.get(index);
+        } else {
+            throw new IndexOutOfBoundsException("Índice de cliente fuera de rango");
+        }
     }
     public Dish getDish(int index){
-        return dishes.get(index);
+        if (index >= 0 && index < dishes.size()) {
+            return dishes.get(index);
+        } else {
+            throw new IndexOutOfBoundsException("Índice de plato fuera de rango");
+        }
     }
     public Restaurant getRestaurant(int index){
-        return restaurants.get(index);
+        if (index >= 0 && index < restaurants.size()) {
+            return restaurants.get(index);
+        } else {
+            throw new IndexOutOfBoundsException("Índice de restaurante fuera de rango");
+        }
     }
-
-    /*public void order(Customer customer, Restaurant restaurant, ArrayList<Integer> dishesId, ArrayList<Integer> quantity){
-
-        //Controlamos exepciones
-        if (customer == null || restaurant == null) {
-            throw new IllegalArgumentException("Cliente o restaurante inválido");
-        }
-
-        //Creamos un pedido
-        Order newOrder;
-
-        if(orders.isEmpty()){
-            newOrder = new Order(0);
-        }
-        else{
-            newOrder = new Order(orders.indexOf(orders.size()) + 1);
-        }
-
-        //Le asignamos un cliente y restaurante
-
-        newOrder.setCustomer(customer);
-        newOrder.setRestaurant(restaurant);
-
-        //Le asignamos los platos
-
-
-        if(dishesId.size() != quantity.size()){
-            throw new IllegalArgumentException("Cantidad de platos o id de platos incorrectos");
-        }
-
-
-        for(int i = 0; i < dishesId.size(); i++){
-            Dish dish = getDish(i);
-            if (dish != null) {
-                OrderItem orderItem = new OrderItem(quantity.indexOf(i), dish);
-                newOrder.addOrderItem(orderItem);
-
-            }
-        }
-
-        orders.add(newOrder);
-
-        //Cambiamos las cantidades
-
-    }*/
 
     public void order(Customer customer, Restaurant restaurant, ArrayList<Integer> dishesId, ArrayList<Integer> quantities) {
         // Controlar excepciones
@@ -112,11 +92,12 @@ public class OrderManager {
             int dishId = dishesId.get(i);
             int quantity = quantities.get(i);
 
-            // Verificar que el índice sea válido
             if (dishId >= 0 && dishId < dishes.size()) {
                 Dish dish = dishes.get(dishId);
                 OrderItem orderItem = new OrderItem(quantity, dish);
                 newOrder.addOrderItem(orderItem);
+            } else {
+                throw new IllegalArgumentException("ID de plato inválido");
             }
         }
 
@@ -124,7 +105,12 @@ public class OrderManager {
     }
 
     public void removeCustomer(int index) {
-        customers.remove(index);
+        if (index >= 0 && index < customers.size()) {
+            customers.remove(index);
+        } else {
+            throw new IndexOutOfBoundsException("Índice de cliente a eliminar fuera de rango");
+        }
+
     }
 
     public int customerQuantity(){
@@ -132,7 +118,12 @@ public class OrderManager {
     }
 
     public Order getOrder(int index){
-        return this.orders.get(index);
+
+        if (index >= 0 && index < orders.size()) {
+            return orders.get(index);
+        } else {
+            throw new IndexOutOfBoundsException("Índice de pedido fuera de rango");
+        }
     }
 
 }

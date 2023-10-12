@@ -12,7 +12,7 @@ public class Dish {
     public Dish(String name, String description, int price) {
         this.name = name;
         this.description = description;
-        this.price = price;
+        setPrice(price);
     }
 
 
@@ -40,6 +40,9 @@ public class Dish {
     }
 
     public void setPrice(int price) {
+        if (price < 0) {
+            throw new IllegalArgumentException("El precio de un plato no puede ser negativo.");
+        }
         this.price = price;
     }
 

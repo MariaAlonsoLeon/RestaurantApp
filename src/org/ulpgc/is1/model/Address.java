@@ -11,6 +11,9 @@ public class Address {
 
 
     public Address(String street, int number, int postalCode, String city) {
+        if (number < 0 || postalCode < 0) {
+            throw new IllegalArgumentException("El número y el código postal no pueden ser valores negativos.");
+        }
         this.street = street;
         this.number = number;
         this.postalCode = postalCode;

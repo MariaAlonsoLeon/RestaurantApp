@@ -9,6 +9,10 @@ public class Customer {
 
 
     public Customer(String name, String surname) {
+        if (name == null || name.trim().isEmpty() || surname == null || surname.trim().isEmpty()) {
+            throw new IllegalArgumentException("Nombre y apellido no pueden estar en blanco.");
+        }
+
         this.name = name;
         this.surname = surname;
     }
@@ -20,6 +24,9 @@ public class Customer {
 
 
     public void setName(String name) {
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("El nombre no puede estar en blanco.");
+        }
         this.name = name;
     }
 
@@ -30,6 +37,9 @@ public class Customer {
 
 
     public void setSurname(String surname) {
+        if (surname == null || surname.trim().isEmpty()) {
+            throw new IllegalArgumentException("El apellido no puede estar en blanco.");
+        }
         this.surname = surname;
     }
 
