@@ -11,7 +11,6 @@ public class OrderItem {
         this.dish = dish;
     }
 
-
     public int getQuantity() {
         return quantity;
     }
@@ -27,8 +26,12 @@ public class OrderItem {
 
     //Método nuevo
 
-
-
-
+    @Override
+    public String toString() {
+        return "OrderItem{" +
+                "quantity=" + quantity +
+                ", dish=" + dish +
+                '}';
+    }
 }
 

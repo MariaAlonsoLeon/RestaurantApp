@@ -4,7 +4,6 @@ import org.ulpgc.is1.model.*;
 
 import java.util.ArrayList;
 
-import static org.ulpgc.is1.model.MenuType.Daily;
 
 public class Main {
     public static void main(String[] args) {
@@ -38,6 +37,9 @@ public class Main {
         quantities.add(4);
 
         orderManager.order(customer1, restaurant1, orderedDishesID, quantities);
+        orderManager.removeCustomer(1);
+        System.out.println("El número de clientes es: " + orderManager.customerQuantity());
+        System.out.println(orderManager.getOrder(0).toString());
 
     }
 
@@ -51,14 +53,12 @@ public class Main {
         Customer customer1 = orderManager.getCustomer(0);
         Customer customer2 = orderManager.getCustomer(1);
 
-
         //Crear dos restaturantes
 
         orderManager.addRestaturant("Ribera del Rio Miño", new Phone("12345678"));
         orderManager.addRestaturant("Casa Lucio", new Phone("87654431"));
         Restaurant restaurant1 = orderManager.getRestaurant(0);
         Restaurant restaurant2 = orderManager.getRestaurant(1);
-
 
 
         //Control + shif + A --> toString

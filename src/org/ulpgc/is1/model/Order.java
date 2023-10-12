@@ -14,7 +14,7 @@ public class Order {
     private Customer customer;
     private Restaurant restaurant;
 
-    public Order(int id) {
+    public Order() {
         this.id = nextID++;
         orderItems = new ArrayList<>();
     }
@@ -43,7 +43,6 @@ public class Order {
 
         return totalPrice;
 
-
     }
 
     public Customer getCustomer() {
@@ -69,7 +68,7 @@ public class Order {
     @Override
     public String toString() {
         return "Order{" +
-                "orderItems=" + orderItems +
+                "orderItems=" + orderItems.toString() +
                 ", id=" + id +
                 ", customer=" + customer +
                 ", restaurant=" + restaurant +

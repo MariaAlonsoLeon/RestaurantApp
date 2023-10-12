@@ -45,7 +45,7 @@ public class OrderManager {
         return restaurants.get(index);
     }
 
-    public void order(Customer customer, Restaurant restaurant, ArrayList<Integer> dishesId, ArrayList<Integer> quantity){
+    /*public void order(Customer customer, Restaurant restaurant, ArrayList<Integer> dishesId, ArrayList<Integer> quantity){
 
         //Controlamos exepciones
         if (customer == null || restaurant == null) {
@@ -80,9 +80,47 @@ public class OrderManager {
             if (dish != null) {
                 OrderItem orderItem = new OrderItem(quantity.indexOf(i), dish);
                 newOrder.addOrderItem(orderItem);
+
             }
         }
 
+        orders.add(newOrder);
+
+        //Cambiamos las cantidades
+
+    }*/
+
+    public void order(Customer customer, Restaurant restaurant, ArrayList<Integer> dishesId, ArrayList<Integer> quantities) {
+        // Controlar excepciones
+        if (customer == null || restaurant == null) {
+            throw new IllegalArgumentException("Cliente o restaurante inválido");
+        }
+
+        // Crear un nuevo pedido
+        Order newOrder = new Order(); // No es necesario pasar un ID
+
+        // Asignar el cliente y restaurante al pedido
+        newOrder.setCustomer(customer);
+        newOrder.setRestaurant(restaurant);
+
+        // Asignar los platos y cantidades
+        if (dishesId.size() != quantities.size()) {
+            throw new IllegalArgumentException("Cantidad de platos o id de platos incorrectos");
+        }
+
+        for (int i = 0; i < dishesId.size(); i++) {
+            int dishId = dishesId.get(i);
+            int quantity = quantities.get(i);
+
+            // Verificar que el índice sea válido
+            if (dishId >= 0 && dishId < dishes.size()) {
+                Dish dish = dishes.get(dishId);
+                OrderItem orderItem = new OrderItem(quantity, dish);
+                newOrder.addOrderItem(orderItem);
+            }
+        }
+
+        orders.add(newOrder);
     }
 
     public void removeCustomer(int index) {
@@ -91,6 +129,10 @@ public class OrderManager {
 
     public int customerQuantity(){
         return customers.size();
+    }
+
+    public Order getOrder(int index){
+        return this.orders.get(index);
     }
 
 }
