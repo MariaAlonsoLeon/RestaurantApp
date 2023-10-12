@@ -73,6 +73,7 @@ public class Order {
                 ", id=" + id +
                 ", customer=" + customer +
                 ", restaurant=" + restaurant +
+                ", prize=" + this.price() +
                 '}';
     }
 }

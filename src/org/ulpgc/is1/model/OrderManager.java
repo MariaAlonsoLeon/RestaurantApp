@@ -27,7 +27,7 @@ public class OrderManager {
         customers.add(new Customer(name, surname));
     }
 
-    public void addDishes(String name, String description, int price){
+    public void addDish(String name, String description, int price){
         dishes.add(new Dish(name, description, price));
     }
 
@@ -76,7 +76,7 @@ public class OrderManager {
 
 
         for(int i = 0; i < dishesId.size(); i++){
-            Dish dish = getDish(dishesId.indexOf(i));
+            Dish dish = getDish(i);
             if (dish != null) {
                 OrderItem orderItem = new OrderItem(quantity.indexOf(i), dish);
                 newOrder.addOrderItem(orderItem);

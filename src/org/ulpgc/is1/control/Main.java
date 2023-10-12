@@ -29,8 +29,9 @@ public class Main {
 
         ArrayList<Dish> catalogueList = catalogue.getDishes();
         ArrayList<Integer> orderedDishesID = new ArrayList<>();
+
+        orderedDishesID.add(catalogueList.size() - 2);
         orderedDishesID.add(catalogueList.size() - 1);
-        orderedDishesID.add(catalogueList.size());
 
         ArrayList<Integer> quantities = new ArrayList<>();
         quantities.add(2);
@@ -43,27 +44,33 @@ public class Main {
     public static void init(OrderManager orderManager) {
 
         //Crear dos objetos de tipo
-        Customer customer1 = new Customer("María","La Mejor");
-        Customer customer2 = new Customer("Daniel", "Talavera");
 
         orderManager.addCustomer("María","La Mejor");
         orderManager.addCustomer("Daniel", "Talavera");
 
+        Customer customer1 = orderManager.getCustomer(0);
+        Customer customer2 = orderManager.getCustomer(1);
+
+
         //Crear dos restaturantes
-        Restaurant restaurant1 = new Restaurant("Ribera del Rio Miño", new Phone("12345678"));
-        Restaurant restaurant2 = new Restaurant("Casa Lucio", new Phone("87654431"));
 
         orderManager.addRestaturant("Ribera del Rio Miño", new Phone("12345678"));
+        orderManager.addRestaturant("Casa Lucio", new Phone("87654431"));
+        Restaurant restaurant1 = orderManager.getRestaurant(0);
+        Restaurant restaurant2 = orderManager.getRestaurant(1);
+
+
 
         //Control + shif + A --> toString
         //Crear tres platos diferentes
-        Dish dish1 = new Dish("Carne con papas fritas", "Super plato para cuando estás cansado", 20);
-        Dish dish2 = new Dish("Salmon con puré de papas", "El salmon es Noruego y todo, por eso es caro", 40);
-        Dish dish3 = new Dish("Solomillo mechado con salsa de champiñones", "Ideal para navidad", 30);
 
-        orderManager.addDishes("Carne con papas fritas", "Super plato para cuando estás cansado", 20);
-        orderManager.addDishes("Salmon con puré de papas", "El salmon es Noruego y todo, por eso es caro", 40);
-        orderManager.addDishes("Solomillo mechado con salsa de champiñones", "Ideal para navidad", 30);
+        orderManager.addDish("Carne con papas fritas", "Super plato para cuando estás cansado", 20);
+        orderManager.addDish("Salmon con puré de papas", "El salmon es Noruego y todo, por eso es caro", 40);
+        orderManager.addDish("Solomillo mechado con salsa de champiñones", "Ideal para navidad", 30);
+
+        Dish dish1 = orderManager.getDish(0);
+        Dish dish2 = orderManager.getDish(1);
+        Dish dish3 = orderManager.getDish(2);
 
 
         restaurant1.addMenu("Desayunos", "Disponible de 9:30 a 10:30. Es super ligero", MenuType.Daily);
