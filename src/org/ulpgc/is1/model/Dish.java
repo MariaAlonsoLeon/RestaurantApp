@@ -1,6 +1,8 @@
 package org.ulpgc.is1.model;
 
 
+import java.util.Objects;
+
 public class Dish {
 
 
@@ -61,4 +63,13 @@ public class Dish {
                 ", price=" + price +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Dish dish = (Dish) o;
+        return price == dish.price && Objects.equals(name, dish.name) && Objects.equals(description, dish.description);
+    }
+
 }

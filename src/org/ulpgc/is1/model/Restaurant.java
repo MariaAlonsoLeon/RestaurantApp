@@ -4,6 +4,7 @@ package org.ulpgc.is1.model;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Restaurant {
 
@@ -47,14 +48,8 @@ public class Restaurant {
     }
 
     public void addMenu(String name, String description, MenuType type) {
-        for (Menu menu : menus) {
-            if (menu.getName().equals(name)) {
-                throw new IllegalArgumentException("Ya existe un menú con el mismo nombre.");
-            }
-        }
-
         Menu newMenu = new Menu(name, description, type);
-        this.menus.add(newMenu);
+        if(!menus.contains(newMenu)) menus.add(newMenu);
     }
 
 
@@ -71,4 +66,13 @@ public class Restaurant {
                 ", menus=" + menus +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Restaurant that = (Restaurant) o;
+        return Objects.equals(name, that.name) && Objects.equals(phone, that.phone) && Objects.equals(menus, that.menus);
+    }
+
 }

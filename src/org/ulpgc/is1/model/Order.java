@@ -3,6 +3,7 @@ package org.ulpgc.is1.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 public class Order {
@@ -72,7 +73,7 @@ public class Order {
     }
 
     public void addOrderItem(OrderItem orderItem){
-        orderItems.add(orderItem);
+        if(!orderItems.contains(orderItem)) orderItems.add(orderItem);
     }
 
     @Override
@@ -85,4 +86,13 @@ public class Order {
                 ", prize=" + this.price() +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Order order = (Order) o;
+        return id == order.id && Objects.equals(orderItems, order.orderItems) && Objects.equals(customer, order.customer) && Objects.equals(restaurant, order.restaurant);
+    }
+
 }

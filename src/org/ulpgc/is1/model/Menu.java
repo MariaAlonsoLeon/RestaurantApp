@@ -4,6 +4,8 @@ package org.ulpgc.is1.model;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
 import org.ulpgc.is1.model.MenuType;
 
 public class Menu {
@@ -52,7 +54,7 @@ public class Menu {
     public static void addDish(Dish newDish){
 
         if (newDish != null) {
-            dishArrayList.add(newDish);
+            if(!dishArrayList.contains(newDish)) dishArrayList.add(newDish);
         } else {
             throw new IllegalArgumentException("No se puede agregar un plato nulo al menú.");
         }
@@ -81,6 +83,14 @@ public class Menu {
                 ", description='" + description + '\'' +
                 ", type=" + type +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Menu menu = (Menu) o;
+        return Objects.equals(name, menu.name) && Objects.equals(description, menu.description) && type == menu.type;
     }
 }
 

@@ -1,6 +1,8 @@
 package org.ulpgc.is1.model;
 
 
+import java.util.Objects;
+
 public class OrderItem {
     private int quantity;
     private Dish dish;
@@ -48,5 +50,14 @@ public class OrderItem {
                 ", dish=" + dish +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        OrderItem orderItem = (OrderItem) o;
+        return quantity == orderItem.quantity && Objects.equals(dish, orderItem.dish);
+    }
+
 }
 

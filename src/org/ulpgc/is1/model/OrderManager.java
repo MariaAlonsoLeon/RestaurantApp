@@ -25,7 +25,8 @@ public class OrderManager {
 
     public void addCustomer(String name, String surname){
         if (name != null && surname != null) {
-            customers.add(new Customer(name, surname));
+            Customer newCustomer = new Customer(name, surname);
+            if(!customers.contains(newCustomer)) customers.add(newCustomer);
         } else {
             throw new IllegalArgumentException("Nombre y apellido no pueden ser nulos");
         }
@@ -33,7 +34,8 @@ public class OrderManager {
 
     public void addDish(String name, String description, int price){
         if (name != null && description != null && price > 0) {
-            dishes.add(new Dish(name, description, price));
+            Dish newDish = new Dish(name, description, price);
+            if(!dishes.contains(newDish)) dishes.add(newDish);
         } else {
             throw new IllegalArgumentException("Nombre, descripción o precio inválidos");
         }
@@ -41,7 +43,8 @@ public class OrderManager {
 
     public void addRestaturant(String name, Phone phone){
         if (name != null && phone != null) {
-            restaurants.add(new Restaurant(name, phone));
+            Restaurant newRestaurant = new Restaurant(name, phone);
+            if(!restaurants.contains(newRestaurant)) restaurants.add(newRestaurant);
         } else {
             throw new IllegalArgumentException("Nombre o teléfono del restaurante no pueden ser nulos");
         }
@@ -100,7 +103,7 @@ public class OrderManager {
             }
         }
 
-        orders.add(newOrder);
+        if(!orders.contains(newOrder)) orders.add(newOrder);
     }
 
     public void removeCustomer(int index) {
