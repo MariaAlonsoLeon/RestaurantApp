@@ -31,10 +31,6 @@ Además de la implementación propuesta, se decidieron incluir otros métodos y 
 Por otro lado, tal y como está comentado en el enunciado del trabajo se atendió a "La navegabilidad en las asociaciones TODO-PARTE se considerará solo del TODO
 a las PARTES" siendo el todo Restaurant y Customer respecto a Order.
 
-
-- Order -> Id
-- Navegabilidad y asociación.
-
 ## Contacto
 
 Este proyecto fue desarrollado por Daniel Talavera Hernández y María Alonso León como parte de la asignatura Ingeniería del Software en la Universidad de Las Palmas de Gran Canaria.
