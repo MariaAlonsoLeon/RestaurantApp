@@ -7,7 +7,6 @@ public class OrderItem {
     private int quantity;
     private Dish dish;
 
-
     public OrderItem(int quantity, Dish dish) {
         if (quantity < 0) {
             throw new IllegalArgumentException("La cantidad no puede ser negativa.");
@@ -22,7 +21,6 @@ public class OrderItem {
     public int getQuantity() {
         return quantity;
     }
-
 
     public void setQuantity(int quantity) {
         if (quantity < 0) {
@@ -42,21 +40,20 @@ public class OrderItem {
         this.dish = dish;
     }
 
-
-    @Override
-    public String toString() {
-        return "OrderItem{" +
-                "quantity=" + quantity +
-                ", dish=" + dish +
-                '}';
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         OrderItem orderItem = (OrderItem) o;
         return quantity == orderItem.quantity && Objects.equals(dish, orderItem.dish);
+    }
+
+    @Override
+    public String toString() {
+        return "OrderItem{" +
+                "quantity=" + quantity +
+                ", dish=" + dish.toString() +
+                '}';
     }
 
 }

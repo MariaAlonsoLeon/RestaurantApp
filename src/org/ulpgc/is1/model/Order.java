@@ -7,16 +7,12 @@ import java.util.Objects;
 import java.util.Random;
 
 public class Order {
-
     private final List<OrderItem> orderItems;
-
-    private static int nextID = 0;
+    private static int NEXT_ID = 0;
     private final int id;
-    private Customer customer;
-    private Restaurant restaurant;
 
     public Order() {
-        this.id = nextID++;
+        this.id = NEXT_ID++;
         orderItems = new ArrayList<>();
     }
 
@@ -26,50 +22,17 @@ public class Order {
 
     public int price(){
         //Dish.price * quantity
-
         int totalPrice = 0;
 
         for (OrderItem orderItem : orderItems) {
             int quantity = orderItem.getQuantity();
             Dish dish = orderItem.getDish();
-
-            if (quantity < 0) {
-                throw new IllegalArgumentException("La cantidad en un OrderItem no puede ser negativa.");
-            }
-
-            if (dish == null) {
-                throw new IllegalArgumentException("El plato en un OrderItem no puede ser nulo.");
-            }
-
             int dishPrice = dish.getPrice();
             int itemTotalPrice = quantity * dishPrice;
             totalPrice += itemTotalPrice;
         }
 
         return totalPrice;
-
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        if (customer == null) {
-            throw new IllegalArgumentException("El cliente no puede ser nulo.");
-        }
-        this.customer = customer;
-    }
-
-    public Restaurant getRestaurant() {
-        return restaurant;
-    }
-
-    public void setRestaurant(Restaurant restaurant) {
-        if (restaurant == null) {
-            throw new IllegalArgumentException("El restaurante no puede ser nulo.");
-        }
-        this.restaurant = restaurant;
     }
 
     public void addOrderItem(OrderItem orderItem){
@@ -77,22 +40,17 @@ public class Order {
     }
 
     @Override
-    public String toString() {
-        return "Order{" +
-                "orderItems=" + orderItems.toString() +
-                ", id=" + id +
-                ", customer=" + customer +
-                ", restaurant=" + restaurant +
-                ", prize=" + this.price() +
-                '}';
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Order order = (Order) o;
-        return id == order.id && Objects.equals(orderItems, order.orderItems) && Objects.equals(customer, order.customer) && Objects.equals(restaurant, order.restaurant);
+        return id == order.id && Objects.equals(orderItems, order.orderItems);
     }
-
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderItems=" + orderItems.toString() +
+                ", id=" + id +
+                '}';
+    }
 }

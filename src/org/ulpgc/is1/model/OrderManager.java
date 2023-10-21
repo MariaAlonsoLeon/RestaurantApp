@@ -4,31 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OrderManager {
-
-
     private final List<Restaurant> restaurants;
     private final List<Dish> dishes;
     private final List<Customer> customers;
-
-    //Lista nueva creada
     private final List<Order> orders;
 
-
-
     public OrderManager() {
-
         restaurants = new ArrayList<>();
         dishes = new ArrayList<>();
         customers = new ArrayList<>();
         orders = new ArrayList<>();
     }
 
-    public void addCustomer(String name, String surname){
-        if (name != null && surname != null) {
-            Customer newCustomer = new Customer(name, surname);
+    public void addCustomer(String name, String surname, List<Order> orders, String street, int number, int postalCode, String city){
+        if (name != null || surname != null || number >= 0 || postalCode >= 0) {
+            Customer newCustomer = new Customer(name, surname, orders, street, number, postalCode, city);
             if(!customers.contains(newCustomer)) customers.add(newCustomer);
         } else {
-            throw new IllegalArgumentException("Nombre y apellido no pueden ser nulos");
+            throw new IllegalArgumentException("Nombre, apellidos, número o código postal inválidos");
         }
     }
 
@@ -41,10 +34,12 @@ public class OrderManager {
         }
     }
 
-    public void addRestaturant(String name, Phone phone){
+    public void addRestaturant(String name, Phone phone, List<Menu> menus, List<Order> orders){
         if (name != null && phone != null) {
-            Restaurant newRestaurant = new Restaurant(name, phone);
+            Restaurant newRestaurant = new Restaurant(name, phone, menus, orders);
             if(!restaurants.contains(newRestaurant)) restaurants.add(newRestaurant);
+        } else if (menus.isEmpty()) {
+            throw new IllegalArgumentException("Debe haber al menos un menú en el restaurante.");
         } else {
             throw new IllegalArgumentException("Nombre o teléfono del restaurante no pueden ser nulos");
         }
@@ -57,6 +52,7 @@ public class OrderManager {
             throw new IndexOutOfBoundsException("Índice de cliente fuera de rango");
         }
     }
+
     public Dish getDish(int index){
         if (index >= 0 && index < dishes.size()) {
             return dishes.get(index);
@@ -64,6 +60,7 @@ public class OrderManager {
             throw new IndexOutOfBoundsException("Índice de plato fuera de rango");
         }
     }
+
     public Restaurant getRestaurant(int index){
         if (index >= 0 && index < restaurants.size()) {
             return restaurants.get(index);
@@ -73,17 +70,15 @@ public class OrderManager {
     }
 
     public void order(Customer customer, Restaurant restaurant, ArrayList<Integer> dishesId, ArrayList<Integer> quantities) {
-        // Controlar excepciones
         if (customer == null || restaurant == null) {
             throw new IllegalArgumentException("Cliente o restaurante inválido");
         }
 
         // Crear un nuevo pedido
-        Order newOrder = new Order(); // No es necesario pasar un ID
+        Order newOrder = new Order();
 
-        // Asignar el cliente y restaurante al pedido
-        newOrder.setCustomer(customer);
-        newOrder.setRestaurant(restaurant);
+        //Asignar el pedido al cliente
+        customer.addOrder(newOrder);
 
         // Asignar los platos y cantidades
         if (dishesId.size() != quantities.size()) {
@@ -103,7 +98,9 @@ public class OrderManager {
             }
         }
 
-        if(!orders.contains(newOrder)) orders.add(newOrder);
+
+        //if(!orders.contains(newOrder)) orders.add(newOrder);
+        orders.add(newOrder);
     }
 
     public void removeCustomer(int index) {
@@ -127,5 +124,4 @@ public class OrderManager {
             throw new IndexOutOfBoundsException("Índice de pedido fuera de rango");
         }
     }
-
 }

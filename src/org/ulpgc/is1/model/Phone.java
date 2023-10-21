@@ -1,4 +1,5 @@
 package org.ulpgc.is1.model;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -8,11 +9,9 @@ public class Phone {
         this.number = number;
     }
 
-
     public String getNumber() {
         return number;
     }
-
 
     public void setNumber(String number) {
         if (this.isValid(number)) {
@@ -22,16 +21,20 @@ public class Phone {
         }
     }
 
-
     public boolean isValid(String number){
         String regex = "^(\\+\\d{1,3})?\\d{10}$"; //Expresión regular para el telefono
-
-        Pattern pattern = Pattern.compile(regex); //Compilamos la expresión regular
-
-        Matcher matcher = pattern.matcher(number); //Creamos un objeto Match para el telefono
-
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(number);
         boolean result = matcher.matches(); //Comprueba si el número de teléfono coincide con el patrón
         return result;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Phone phone = (Phone) o;
+        return Objects.equals(number, phone.number);
     }
 
     @Override

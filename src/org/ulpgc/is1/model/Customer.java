@@ -10,21 +10,30 @@ public class Customer {
 
     private String name;
     private String surname;
+    private List<Order> orders;
+    private Address address;
 
 
-    public Customer(String name, String surname) {
+
+    public Customer(String name, String surname, List<Order> orders, String street, int number, int postalCode, String city) {
+        //Validar el nombre y apellido
         if (name == null || name.trim().isEmpty() || surname == null || surname.trim().isEmpty()) {
             throw new IllegalArgumentException("Nombre y apellido no pueden estar en blanco.");
         }
-
         this.name = name;
         this.surname = surname;
+        this.orders = orders;
+
+        // Validar y crear la dirección
+        if (street == null || street.trim().isEmpty() || number < 0 || postalCode < 0 || city == null || city.trim().isEmpty()) {
+            throw new IllegalArgumentException("Los datos de dirección no son válidos.");
+        }
+        this.address = new Address(street, number, postalCode, city);
     }
 
     public String getName() {
         return name;
     }
-
 
     public void setName(String name) {
         if (name == null || name.trim().isEmpty()) {
@@ -33,11 +42,9 @@ public class Customer {
         this.name = name;
     }
 
-
     public String getSurname() {
         return surname;
     }
-
 
     public void setSurname(String surname) {
         if (surname == null || surname.trim().isEmpty()) {
@@ -46,12 +53,20 @@ public class Customer {
         this.surname = surname;
     }
 
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                '}';
+    public List<Order> getOrder() {
+        return orders;
+    }
+
+    public void addOrder(Order order) {
+        orders.add(order);
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     @Override
@@ -59,7 +74,16 @@ public class Customer {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Customer customer = (Customer) o;
-        return Objects.equals(name, customer.name) && Objects.equals(surname, customer.surname);
+        return Objects.equals(name, customer.name) && Objects.equals(surname, customer.surname) && Objects.equals(orders, customer.orders);
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", order=" + orders.toString() +
+                '}';
     }
 
 }
