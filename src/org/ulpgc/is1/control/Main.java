@@ -24,12 +24,10 @@ public class Main {
         Customer customer1 = orderManager.getCustomer(0);
         Menu catalogue = restaurant1.getMenu(0);
 
-
         ArrayList<Dish> catalogueList = (ArrayList<Dish>) catalogue.getDishes(); //Sacamos todos los platos del menu
         ArrayList<Integer> orderedDishesIndexes = new ArrayList<>(); //Creamos una lista con los índices de dish2 y dish3
         orderedDishesIndexes.add(catalogueList.size() - 2);
         orderedDishesIndexes.add(catalogueList.size() - 1);
-
 
         ArrayList<Integer> quantities = new ArrayList<>(); //Creamos una lista con las cantidades ficticias de cada plato
         quantities.add(2);
@@ -48,7 +46,6 @@ public class Main {
 
         //Comprobación para acceder desde customer a order cumpliendo la navegabilidad
         System.out.println(customer1.getOrders() + "\n");
-
 
         //Comprobaciones extras
         ArrayList<Dish> catalogueList2 = (ArrayList<Dish>) catalogue.getDishes();
