@@ -1,6 +1,5 @@
 package org.ulpgc.is1.model;
 
-
 import java.util.Objects;
 
 public class OrderItem {

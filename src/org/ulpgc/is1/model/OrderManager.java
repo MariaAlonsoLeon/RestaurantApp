@@ -4,21 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OrderManager {
-    private final List<Restaurant> restaurants;
-    private final List<Dish> dishes;
-    private final List<Customer> customers;
-    private final List<Order> orders;
+    private List<Restaurant> restaurants;
+    private List<Dish> dishes;
+    private List<Customer> customers;
 
     public OrderManager() {
         restaurants = new ArrayList<>();
         dishes = new ArrayList<>();
         customers = new ArrayList<>();
-        orders = new ArrayList<>();
     }
 
-    public void addCustomer(String name, String surname, List<Order> orders, String street, int number, int postalCode, String city){
-        if (name != null || surname != null || number >= 0 || postalCode >= 0) {
-            Customer newCustomer = new Customer(name, surname, orders, street, number, postalCode, city);
+    public void addCustomer(String name, String surname, String street, int number, int postalCode, String city){
+        if (name != null && surname != null && number >= 0 && postalCode >= 0) {
+            Customer newCustomer = new Customer(name, surname, street, number, postalCode, city);
             if(!customers.contains(newCustomer)) customers.add(newCustomer);
         } else {
             throw new IllegalArgumentException("Nombre, apellidos, número o código postal inválidos");
@@ -34,14 +32,16 @@ public class OrderManager {
         }
     }
 
-    public void addRestaturant(String name, Phone phone, List<Menu> menus, List<Order> orders){
-        if (name != null && phone != null) {
-            Restaurant newRestaurant = new Restaurant(name, phone, menus, orders);
-            if(!restaurants.contains(newRestaurant)) restaurants.add(newRestaurant);
-        } else if (menus.isEmpty()) {
-            throw new IllegalArgumentException("Debe haber al menos un menú en el restaurante.");
-        } else {
+    public void addRestaturant(String name, Phone phone, ArrayList<Menu> menus){
+        if (name == null || name.trim().isEmpty() || phone == null) {
             throw new IllegalArgumentException("Nombre o teléfono del restaurante no pueden ser nulos");
+        }
+        if (menus.isEmpty()) {
+            throw new IllegalArgumentException("Debe haber al menos un menú en el restaurante.");
+        }
+        Restaurant newRestaurant = new Restaurant(name, phone, menus);
+        if (!restaurants.contains(newRestaurant)) {
+            restaurants.add(newRestaurant);
         }
     }
 
@@ -70,8 +70,18 @@ public class OrderManager {
     }
 
     public void order(Customer customer, Restaurant restaurant, ArrayList<Integer> dishesId, ArrayList<Integer> quantities) {
+        /*Este método se utiliza para crear un pedido y vincularlo con un cliente y su restaurante. Para ello,
+        * se hace uso de las listas dishesId y quantities. La primera de ellas contiene los índices de los platos en la
+        * lista principal dishes. La segunda de ellas contiene las cantidades de los platos, correpondiéndose las posiciones
+        * de forma que se relacione la cantidad con el índice del plato. Por ejemplo, */
+
+
+        //Controlar excepciones
         if (customer == null || restaurant == null) {
             throw new IllegalArgumentException("Cliente o restaurante inválido");
+        }
+        if (dishesId.size() != quantities.size()) {
+            throw new IllegalArgumentException("Cantidad de platos o id de platos incorrectos");
         }
 
         // Crear un nuevo pedido
@@ -81,9 +91,6 @@ public class OrderManager {
         customer.addOrder(newOrder);
 
         // Asignar los platos y cantidades
-        if (dishesId.size() != quantities.size()) {
-            throw new IllegalArgumentException("Cantidad de platos o id de platos incorrectos");
-        }
 
         for (int i = 0; i < dishesId.size(); i++) {
             int dishId = dishesId.get(i);
@@ -98,9 +105,7 @@ public class OrderManager {
             }
         }
 
-
-        //if(!orders.contains(newOrder)) orders.add(newOrder);
-        orders.add(newOrder);
+        restaurant.addOrder(newOrder);
     }
 
     public void removeCustomer(int index) {
@@ -116,12 +121,4 @@ public class OrderManager {
         return customers.size();
     }
 
-    public Order getOrder(int index){
-
-        if (index >= 0 && index < orders.size()) {
-            return orders.get(index);
-        } else {
-            throw new IndexOutOfBoundsException("Índice de pedido fuera de rango");
-        }
-    }
 }

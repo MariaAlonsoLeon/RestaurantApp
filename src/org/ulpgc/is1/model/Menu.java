@@ -9,10 +9,10 @@ public class Menu {
     private MenuType type;
     private List<Dish> dishes;
 
-    public Menu(String name, MenuType type, List<Dish> dishes) {
+    public Menu(String name, MenuType type) {
         this.name = name;
-        this.dishes = dishes;
         this.type = type;
+        this.dishes = new ArrayList<Dish>();
     }
 
     public String getName() {
@@ -26,6 +26,18 @@ public class Menu {
         this.name = name;
     }
 
+    public MenuType getType() {
+        return type;
+    }
+
+    public void setType(MenuType type) {
+        this.type = type;
+    }
+
+    public List<Dish> getDishes(){
+        return this.dishes;
+    }
+
     public void addDish(Dish newDish){
         if (newDish != null) {
             if(!dishes.contains(newDish)) dishes.add(newDish);
@@ -34,27 +46,12 @@ public class Menu {
         }
     }
 
-    public MenuType getType() {
-        return type;
-    }
-
-    public void setType(MenuType type) {
-        if (!(type instanceof MenuType)) {
-            throw new IllegalArgumentException("Tipo no válido.");
-        }
-        this.type = type;
-    }
-
-    public List<Dish> getDishes(){
-        return this.dishes;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Menu menu = (Menu) o;
-        return Objects.equals(name, menu.name) && type == menu.type;
+        return Objects.equals(name, menu.name) && type == menu.type && Objects.equals(dishes, menu.dishes);
     }
 
     @Override
@@ -62,6 +59,7 @@ public class Menu {
         return "Menu{" +
                 "name='" + name + '\'' +
                 ", type=" + type +
+                ", dishes=" + dishes.toString() +
                 '}';
     }
 }

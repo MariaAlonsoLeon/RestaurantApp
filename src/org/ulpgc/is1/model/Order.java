@@ -1,19 +1,17 @@
 package org.ulpgc.is1.model;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Random;
 
 public class Order {
-    private final List<OrderItem> orderItems;
+    private List<OrderItem> orderItems;
     private static int NEXT_ID = 0;
     private final int id;
 
     public Order() {
         this.id = NEXT_ID++;
-        orderItems = new ArrayList<>();
+        orderItems = new ArrayList<OrderItem>();
     }
 
     public int getId() {
@@ -35,6 +33,10 @@ public class Order {
         return totalPrice;
     }
 
+    public List<OrderItem> getOrderItems(){
+        return this.orderItems;
+    }
+
     public void addOrderItem(OrderItem orderItem){
         if(!orderItems.contains(orderItem)) orderItems.add(orderItem);
     }
@@ -46,11 +48,13 @@ public class Order {
         Order order = (Order) o;
         return id == order.id && Objects.equals(orderItems, order.orderItems);
     }
+
     @Override
     public String toString() {
         return "Order{" +
                 "orderItems=" + orderItems.toString() +
                 ", id=" + id +
+                ", prize=" + this.price() +
                 '}';
     }
 }

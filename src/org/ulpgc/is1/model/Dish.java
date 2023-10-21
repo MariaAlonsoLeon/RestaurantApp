@@ -1,6 +1,5 @@
 package org.ulpgc.is1.model;
 
-
 import java.util.Objects;
 
 public class Dish {
@@ -9,6 +8,12 @@ public class Dish {
     private int price;
 
     public Dish(String name, String description, int price) {
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("El nombre no puede estar en blanco.");
+        }
+        if (price < 0) {
+            throw new IllegalArgumentException("El precio de un plato no puede ser negativo.");
+        }
         this.name = name;
         this.description = description;
         this.price = price;
@@ -30,9 +35,7 @@ public class Dish {
     }
 
     public void setDescription(String description) {
-        if (description == null || description.trim().isEmpty()) {
-            throw new IllegalArgumentException("La descripción no puede estar en blanco.");
-        }
+        //Decidimos que la descripción no es obligatoria, puede ser una String vacía
         this.description = description;
     }
 

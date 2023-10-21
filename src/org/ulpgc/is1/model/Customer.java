@@ -1,28 +1,24 @@
 package org.ulpgc.is1.model;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class Customer {
 
-
     private String name;
     private String surname;
     private List<Order> orders;
     private Address address;
 
-
-
-    public Customer(String name, String surname, List<Order> orders, String street, int number, int postalCode, String city) {
+    public Customer(String name, String surname, String street, int number, int postalCode, String city) {
         //Validar el nombre y apellido
         if (name == null || name.trim().isEmpty() || surname == null || surname.trim().isEmpty()) {
             throw new IllegalArgumentException("Nombre y apellido no pueden estar en blanco.");
         }
         this.name = name;
         this.surname = surname;
-        this.orders = orders;
+        this.orders = new ArrayList<>();
 
         // Validar y crear la dirección
         if (street == null || street.trim().isEmpty() || number < 0 || postalCode < 0 || city == null || city.trim().isEmpty()) {
@@ -53,8 +49,11 @@ public class Customer {
         this.surname = surname;
     }
 
-    public List<Order> getOrder() {
+    public List<Order> getOrders() {
         return orders;
+    }
+    public Order getOrder(int index){
+        return orders.get(index);
     }
 
     public void addOrder(Order order) {
@@ -74,7 +73,7 @@ public class Customer {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Customer customer = (Customer) o;
-        return Objects.equals(name, customer.name) && Objects.equals(surname, customer.surname) && Objects.equals(orders, customer.orders);
+        return Objects.equals(name, customer.name) && Objects.equals(surname, customer.surname) && Objects.equals(orders, customer.orders) && Objects.equals(address, customer.address);
     }
 
     @Override
@@ -82,8 +81,8 @@ public class Customer {
         return "Customer{" +
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-                ", order=" + orders.toString() +
+                ", orders=" + orders.toString() +
+                ", address=" + address.toString() +
                 '}';
     }
-
 }
